@@ -27,8 +27,11 @@ public class ScheduleWorld extends World
     
     public void act() {
         if (Greenfoot.mouseClicked(this.finishButton)) {
-            this.mainWorld.finishSchedule(1, 2, 3, 4);
+            Stats_Board stats=this.mainWorld.returnStats();
+            stats.addPoints("IQ", 1);
+            stats.addPoints("EQ", 2);
             Greenfoot.setWorld(this.mainWorld);
+            
         }
     }
     

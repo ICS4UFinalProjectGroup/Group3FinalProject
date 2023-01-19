@@ -21,4 +21,9 @@ public class Stat extends LabelAbstract
         GreenfootImage display = new GreenfootImage(stat_name+": "+ getValue(), 30, Color.BLACK, transparent);
         setImage(display);
     }
+    public void setStat(int newValue)
+    {
+        value = newValue;
+        updateImage();
+    }
 }

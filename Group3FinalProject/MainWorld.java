@@ -16,10 +16,12 @@ public class MainWorld extends World
     private Label roundLabel;
     
     // TODO: temp for testing
-    private Label statsLabel;
+    
     private Button playPixelArtButton;
     private Button playMemoryButton;
     private Button playMazeButton;
+    
+    private Stats_Board the_Stats;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -40,8 +42,6 @@ public class MainWorld extends World
         this.roundLabel = new Label(this.round);
         addObject(roundLabel, 500, 350);
         
-        this.statsLabel = new Label(this.stats.getString());
-        addObject(statsLabel, 100, 350);
         
         this.playPixelArtButton = new Button("playPixelArt.png");
         addObject(playPixelArtButton, 100, 100);
@@ -49,6 +49,9 @@ public class MainWorld extends World
         addObject(playMemoryButton, 200, 100);
         this.playMazeButton = new Button("playMaze.png");
         addObject(playMazeButton, 300, 100);
+        
+        the_Stats=new Stats_Board();
+        addObject(the_Stats, 180, 400);
     }
     
     public void act() {
@@ -61,7 +64,7 @@ public class MainWorld extends World
             Greenfoot.setWorld(pr);
         }
         else if (Greenfoot.mouseClicked(this.playMemoryButton)) {
-            Game_Intro_World giw = new Game_Intro_World();
+            Game_Intro_World giw = new Game_Intro_World(this);
             Greenfoot.setWorld(giw);
         }
         else if (Greenfoot.mouseClicked(this.playMazeButton)) {
@@ -74,7 +77,6 @@ public class MainWorld extends World
         this.round++;
         this.stats.promote(IQ, EQ, creativity, memory);
         this.roundLabel.updateLabel(this.round);
-        this.statsLabel.updateLabel(this.stats.getString());
     }
     
     public int getRound() {
@@ -84,4 +86,10 @@ public class MainWorld extends World
     public Stats getStats() {
         return this.stats;
     }
+    
+    public Stats_Board returnStats(){
+        return the_Stats;
+    }
+    
+    
 }

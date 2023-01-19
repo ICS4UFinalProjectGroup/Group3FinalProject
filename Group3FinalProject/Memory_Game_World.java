@@ -8,10 +8,12 @@ import java.util.Collections;
  * @author (your name) 
  * @version (a version number or a date)
  * https://www.pinterest.ca/pin/587367976379616134/
+ * 
+ * "https://www.freepik.com/free-vector/peach-background-vector-cute-desktop-wallpaper_18247639.htm#query=desktop%20wallpaper&position=1&from_view=keyword">Image by rawpixel.com</a> on Freepik
  */
 public class Memory_Game_World extends World
 {
-    private GreenfootImage background = new GreenfootImage("paper.jpg");
+    private GreenfootImage background = new GreenfootImage("wallpaper.jpg");
     private ArrayList<String> all_cards=new ArrayList<String>();
     private Card[][] cards;
     private int level;
@@ -25,14 +27,16 @@ public class Memory_Game_World extends World
     private long startTime;
     private long endTime;
     private int points;
+    private MainWorld main;
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
-    public Memory_Game_World()
+    public Memory_Game_World(MainWorld mainWorld)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1); 
+        main=mainWorld;
         setBackground(background);
         for(int i=0; i<2; i++){
             all_cards.add("bunny");
@@ -104,10 +108,10 @@ public class Memory_Game_World extends World
         }
         pointDisplay.setDisplayer(points);
         if(points==12&&getTimeInSeconds()<60){
-            Greenfoot.setWorld(new Game_Result_World(points, getTimeInSeconds(), true));
+            Greenfoot.setWorld(new Game_Result_World(points, getTimeInSeconds(), true, main));
         }
         if(getTimeInSeconds()==60){
-            Greenfoot.setWorld(new Game_Result_World(points, getTimeInSeconds(), false));
+            Greenfoot.setWorld(new Game_Result_World(points, getTimeInSeconds(), false, main));
         }
     }
     public void countDown(){
