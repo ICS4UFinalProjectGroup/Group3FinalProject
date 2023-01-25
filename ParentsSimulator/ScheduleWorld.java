@@ -22,7 +22,7 @@ public class ScheduleWorld extends AbstractWorld
     private GreenfootImage scheduleText;
     private Label ageLabel;
     private Button finishButton;
-    private Flashing_Text flashText;
+    private FlashingText flashText;
     
     private ScheduleItem[][] scheduleTable;
     
@@ -50,7 +50,7 @@ public class ScheduleWorld extends AbstractWorld
         this.finishButton = new Button("buttonSchedule.png");
         
         scheduleText = new GreenfootImage("scheduleText.png");
-        flashText = new Flashing_Text(scheduleText);
+        flashText = new FlashingText(scheduleText);
         addObject(flashText, 680, 220);
         
         this.scheduleTable = initScheduleTable();

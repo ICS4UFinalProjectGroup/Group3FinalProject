@@ -20,13 +20,13 @@ public class MainWorld extends World
     private Button playMemoryButton;
     private Button playChessButton;
     private Button resultButton;
-    private Flashing_Text pointingFinger;
+    private FlashingText pointingFinger;
     
     private Map<String, Stat> statMap;
     
-    private boolean playArtGame=false;
-    private boolean playMemoryGame=false;
-    private boolean playMazeGame=false;
+    private boolean playArtGame;
+    private boolean playMemoryGame;
+    private boolean playMazeGame;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -51,7 +51,7 @@ public class MainWorld extends World
         this.playChessButton = new Button("buttonChessGame.png");
         addObject(playChessButton, 160, 95);
         this.resultButton = new Button("buttonResult.png");
-        this.pointingFinger = new Flashing_Text(new GreenfootImage("pointingFinger.png"));
+        this.pointingFinger = new FlashingText(new GreenfootImage("pointingFinger.png"));
         addObject(pointingFinger, 320, 150);
         
         Stat iqStat = new Stat(0);
@@ -72,6 +72,10 @@ public class MainWorld extends World
         Constants.backgroundSound.playLoop();
         
         setBackground();
+        
+        playArtGame = false;
+        playMemoryGame = false;
+        playMazeGame = false;
     }
     
     public void act() {
@@ -90,7 +94,7 @@ public class MainWorld extends World
                         this.statMap.get("Memory").getValue(),
                         this.statMap.get("Creativity").getValue()
                     };
-                    End_World ew = new End_World(stats);
+                    EndWorld ew = new EndWorld(stats);
                     Greenfoot.setWorld(ew);
                 }
             }
@@ -112,7 +116,7 @@ public class MainWorld extends World
             stopSound();
             this.playMemoryButton.playSound();
             playMemoryGame=true;
-            Game_Intro_World giw = new Game_Intro_World(this);
+            GameIntroWorld giw = new GameIntroWorld(this);
             Greenfoot.setWorld(giw);
         }
         else if (Greenfoot.mouseClicked(this.playChessButton)) {

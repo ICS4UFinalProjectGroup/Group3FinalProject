@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Story_World is an initial world that shows the player and intro story
+ * StoryWorld is an initial world that shows the player and intro story
  * of the game. Players can click the button to flip pages.
  * 
  * @Yuxin Li 
@@ -39,10 +39,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * https://www.freepik.com/premium-vector/collection-set-wooden-game-ui-frame-template-pop-up-interface-gui-asset-elements_11707777.htm#from_view=detail_alsolike
  */
 
-public class Story_World extends World
+public class StoryWorld extends World
 {
-    private GreenfootImage[] backgrounds=new GreenfootImage[5];
-    private GreenfootImage[] stories=new GreenfootImage[5];
+    private GreenfootImage[] backgrounds = new GreenfootImage[5];
+    private GreenfootImage[] stories = new GreenfootImage[5];
     private int clickIndex;
     private Arrow forward;
     private Arrow backward;
@@ -50,7 +50,7 @@ public class Story_World extends World
      * Story World constructor
      * set the first page of story and add the flip page button
      */
-    public Story_World()
+    public StoryWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1); 

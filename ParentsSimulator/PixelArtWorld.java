@@ -148,24 +148,24 @@ public class PixelArtWorld extends World
             if (secondsElapsed <= 60) // Less than or equal to 60 s to complete = Win + 12 pts
             {
                 points = 12;
-                Greenfoot.setWorld(new Game_Result_World(points, secondsElapsed, true, main, "EQ", "Creativity"));
+                Greenfoot.setWorld(new GameResultWorld(points, secondsElapsed, true, main, "EQ", "Creativity"));
             }
             else if (secondsElapsed >= 61 && secondsElapsed <= 70) // 61 s to 70 s to complete = Win + 6 pts
             {
                 points = 6;
-                Greenfoot.setWorld(new Game_Result_World(points, secondsElapsed, true, main, "EQ", "Creativity"));
+                Greenfoot.setWorld(new GameResultWorld(points, secondsElapsed, true, main, "EQ", "Creativity"));
             }
             else // More than 70 s to complete = 2 points
             {
                 points = 2;
-                Greenfoot.setWorld(new Game_Result_World(points, secondsElapsed, true, main, "EQ", "Creativity"));
+                Greenfoot.setWorld(new GameResultWorld(points, secondsElapsed, true, main, "EQ", "Creativity"));
             }
         }
         
         if (!finished && secondsElapsed == maxTime) // Didn't complete the pixel art in time = Lose
         {
             points = 0;
-            Greenfoot.setWorld(new Game_Result_World(points, secondsElapsed, false, main, "EQ", "Creativity"));
+            Greenfoot.setWorld(new GameResultWorld(points, secondsElapsed, false, main, "EQ", "Creativity"));
         }
     }
     

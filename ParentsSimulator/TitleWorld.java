@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * 
  * CREDIT: Background image from: https://www.pinterest.ca/pin/18366310973098552/
  * */
-public class Title_World extends World
+public class TitleWorld extends World
 {
     private GreenfootImage titleBG;
     private GreenfootImage playImage = new GreenfootImage("playButton.png");
@@ -18,7 +18,7 @@ public class Title_World extends World
      * Sets up the background image and adds a "Play" button.
      * 
      */
-    public Title_World()
+    public TitleWorld()
     {    
         super(1000, 700, 1); 
         titleBG = new GreenfootImage("titleScreenBG.png");
@@ -32,7 +32,7 @@ public class Title_World extends World
         if (Greenfoot.mouseClicked(playButton))
         {
             this.playButton.playSound();
-            Greenfoot.setWorld(new Story_World());
+            Greenfoot.setWorld(new StoryWorld());
         }
     }
     

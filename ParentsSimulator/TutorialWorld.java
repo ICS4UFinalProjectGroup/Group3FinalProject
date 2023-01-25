@@ -6,27 +6,27 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author: Gloria Chan
  * @version: January 23, 2023
  * 
- * CREDIT: Yuxin's Story_World for reference.
+ * CREDIT: Yuxin's StoryWorld for reference.
  */
-public class Tutorial_World extends World
+public class TutorialWorld extends World
 {
     private GreenfootImage[] tutorialPage = new GreenfootImage[13];
     private int pageNumber;
     
     private GreenfootImage proceedMessage;
-    private Flashing_Text flashingMessage;
+    private FlashingText flashingMessage;
     
     /**
      * For every page, there is a corresponding image. The user will be prompted to proceed to
      * the next page by clicking on anywhere on the screen.
      * 
      */
-    public Tutorial_World()
+    public TutorialWorld()
     {    
         super(1000, 700, 1); 
         proceedMessage = new GreenfootImage("proceed.png");
         
-        flashingMessage = new Flashing_Text(proceedMessage);
+        flashingMessage = new FlashingText(proceedMessage);
         addObject(flashingMessage, 500, 630);
         
         pageNumber = 0;

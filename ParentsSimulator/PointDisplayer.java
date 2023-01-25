@@ -13,7 +13,7 @@ public class PointDisplayer extends LabelAbstract
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public PointDisplayer(int value){
-        this.value=value;
+        this.value = value;
     }
     
     /**

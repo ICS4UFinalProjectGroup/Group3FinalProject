@@ -13,7 +13,7 @@ public class Backward extends Arrow
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    public Backward(Story_World sw){
+    public Backward(StoryWorld sw){
         GreenfootImage backwardArrow = new GreenfootImage("backward.png");
         setImage(backwardArrow);
         storyWorld=sw;

@@ -12,7 +12,7 @@ public abstract class Arrow extends Actor
      * Act - do whatever the Arrow wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    protected Story_World storyWorld;
+    protected StoryWorld storyWorld;
     
     private static GreenfootSound[] sounds = {
         new GreenfootSound("click.wav"),

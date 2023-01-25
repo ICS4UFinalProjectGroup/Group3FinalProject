@@ -1,26 +1,26 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Fades_Points here.
+ * Write a description of class FadesPoints here.
  * 
  * @author Yuxin Li  
  * @version Jan 2023
  */
-public class Fades_Points extends Flashing_Text
+public class FadesPoints extends FlashingText
 {
     
     /**
-     * Act - do whatever the Fades_Points wants to do. This method is called whenever
+     * Act - do whatever the FadesPoints wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    public Fades_Points(GreenfootImage text){
+    public FadesPoints(GreenfootImage text){
         super(text);
     }
     public void act()
     {
         // Add your action code here.
-        add_points_effect();
+        addPointsEffect();
         if(getImage().getTransparency()==0){
             getWorld().removeObject(this);
         }
@@ -29,7 +29,7 @@ public class Fades_Points extends Flashing_Text
     /**
      * the transparency decreases
      */
-    public void add_points_effect(){
+    public void addPointsEffect(){
         getImage().setTransparency(getImage().getTransparency()-5);
     }
 }

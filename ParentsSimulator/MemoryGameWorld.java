@@ -15,19 +15,19 @@ import java.util.Collections;
  * card cover from:
  * https://www.google.com/url?sa=i&url=http%3A%2F%2Frojgaraurnirman.in%2Fnotes.asp%3Fiid%3D85854742-cute%2Bbackground%2Bwallpaper%26cid%3D5&psig=AOvVaw2-48CrC9AafUW-Axk9iiiA&ust=1674583595198000&source=images&cd=vfe&ved=0CBEQjhxqFwoTCNCeq5Sk3vwCFQAAAAAdAAAAABAM
  */
-public class Memory_Game_World extends World
+public class MemoryGameWorld extends World
 {
     private GreenfootImage background = new GreenfootImage("memory_intro.jpg");
-    private ArrayList<String> all_cards=new ArrayList<String>();
+    private ArrayList<String> allCards = new ArrayList<String>();
     private Card[][] cards;
     private int level;
-    private int l_spacing=840/6;
-    private int w_spacing=550/4;
-    private Card first_card;
-    private Card second_card;
+    private int lSpacing = 840/6;
+    private int wSpacing = 550/4;
+    private Card firstCard;
+    private Card secondCard;
     private int waittime;
-    private TimeDisplayer timeDisplay=new TimeDisplayer(60);
-    private PointDisplayer pointDisplay=new PointDisplayer(0);
+    private TimeDisplayer timeDisplay = new TimeDisplayer(60);
+    private PointDisplayer pointDisplay = new PointDisplayer(0);
     private long startTime;
     private long endTime;
     private int points;
@@ -40,62 +40,62 @@ public class Memory_Game_World extends World
      * 
      * @param mainWorld the main player world that the player will go back to after the game
      */
-    public Memory_Game_World(MainWorld mainWorld)
+    public MemoryGameWorld(MainWorld mainWorld)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1); 
-        main=mainWorld;
+        main = mainWorld;
         setBackground(background);
         for(int i=0; i<2; i++){
-            all_cards.add("bunny");
-            all_cards.add("cheetah");
-            all_cards.add("duck");
-            all_cards.add("fox");
-            all_cards.add("penguin");
-            all_cards.add("bear");
-            all_cards.add("owl");
-            all_cards.add("lion");
-            all_cards.add("bull");
-            all_cards.add("panda");
-            all_cards.add("pig");
-            all_cards.add("giraffe");
+            allCards.add("bunny");
+            allCards.add("cheetah");
+            allCards.add("duck");
+            allCards.add("fox");
+            allCards.add("penguin");
+            allCards.add("bear");
+            allCards.add("owl");
+            allCards.add("lion");
+            allCards.add("bull");
+            allCards.add("panda");
+            allCards.add("pig");
+            allCards.add("giraffe");
         }
         // shuffle the cards
-        Collections.shuffle(all_cards);
+        Collections.shuffle(allCards);
         //add the cards to the 2D array and calculate the position
-        cards=new Card[4][6];
-        int index=0;
-        for(int i=0; i<cards.length; i++){
-            for(int j=0; j<cards[i].length; j++){
-                cards[i][j]=new Card(all_cards.get(index));
+        cards = new Card[4][6];
+        int index = 0;
+        for(int i = 0; i<cards.length; i++){
+            for(int j = 0; j<cards[i].length; j++){
+                cards[i][j] = new Card(allCards.get(index));
                 index++;
-                addObject(cards[i][j],150+j*l_spacing,150+i*w_spacing);
+                addObject(cards[i][j],150+j*lSpacing,150+i*wSpacing);
             }
         }
-        waittime=30;
+        waittime = 30;
         addObject(timeDisplay, 200, 50);
         addObject(pointDisplay, 800, 50);
-        startTime=System.nanoTime();
-        points=0;
+        startTime = System.nanoTime();
+        points = 0;
         
         matchSound = new GreenfootSound("memoryCard.wav");
     }
     
     public void act(){
         //first and second card are static variables stored in Card class
-        first_card=Card.getFirst();
-        second_card=Card.getSecond();
-        if(first_card!=null&&second_card!=null){
-            if((first_card.getName()).equals(second_card.getName())){
+        firstCard = Card.getFirst();
+        secondCard = Card.getSecond();
+        if(firstCard != null && secondCard != null){
+            if((firstCard.getName()).equals(secondCard.getName())){
                 //remove the cards and reset the first flip and second flip
                 countDown();
-                if(waittime==0){
+                if(waittime == 0){
                     matchSound.play();
-                    removeObject(first_card);
-                    removeObject(second_card);
-                    first_card=null;
-                    second_card=null;
-                    waittime=30;
+                    removeObject(firstCard);
+                    removeObject(secondCard);
+                    firstCard = null;
+                    secondCard = null;
+                    waittime = 30;
                     Card.setUpNumber();
                     Card.setFirst();
                     Card.setSecond();
@@ -105,12 +105,12 @@ public class Memory_Game_World extends World
             else{
                 //flip cards back after half a sec
                 countDown();
-                if(waittime==0){
-                    first_card.flipBack();
-                    second_card.flipBack();
-                    first_card=null;
-                    second_card=null;
-                    waittime=30;
+                if(waittime == 0){
+                    firstCard.flipBack();
+                    secondCard.flipBack();
+                    firstCard = null;
+                    secondCard = null;
+                    waittime = 30;
                     Card.setUpNumber();
                     Card.setFirst();
                     Card.setSecond();
@@ -119,18 +119,18 @@ public class Memory_Game_World extends World
             
         }
         //update the timer
-        if(60-getTimeInSeconds()>0){
+        if(60-getTimeInSeconds() > 0){
             endTime=System.nanoTime();
             timeDisplay.setDisplayer(60-getTimeInSeconds());
         }
         //update the points
         pointDisplay.setDisplayer(points);
         //go to the result world if the player gets all pair or time runs ou
-        if(points==12&&getTimeInSeconds()<60){
-            Greenfoot.setWorld(new Game_Result_World(points, getTimeInSeconds(), true, main, "Memory", "Creativity"));
+        if(points == 12 && getTimeInSeconds() < 60){
+            Greenfoot.setWorld(new GameResultWorld(points, getTimeInSeconds(), true, main, "Memory", "Creativity"));
         }
-        if(getTimeInSeconds()==60){
-            Greenfoot.setWorld(new Game_Result_World(points, getTimeInSeconds(), false, main, "Memory", "Creativity"));
+        if(getTimeInSeconds() == 60){
+            Greenfoot.setWorld(new GameResultWorld(points, getTimeInSeconds(), false, main, "Memory", "Creativity"));
         }
     }
     
@@ -138,7 +138,7 @@ public class Memory_Game_World extends World
      * start count down if the wait time is above 0
      */
     public void countDown(){
-        if(waittime>0){
+        if(waittime > 0){
             waittime--;
         }
     }
@@ -148,7 +148,7 @@ public class Memory_Game_World extends World
      * @return boolean true if there are no cards remain in world, false if there are still cards in world 
      */
     public boolean finished(){
-        if(getObjects(Card.class).size()==0){
+        if(getObjects(Card.class).size() == 0){
             return true;
         }
         return false;

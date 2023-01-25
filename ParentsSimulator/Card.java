@@ -14,12 +14,12 @@ public class Card extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private GreenfootImage animal;
-    private static GreenfootImage cover=new GreenfootImage("card_cover.png");
+    private static GreenfootImage cover = new GreenfootImage("card_cover.png");
     private String name;
     private boolean faceUp;
     private static int upNumber;
-    private static Card first=null;
-    private static Card second=null;
+    private static Card first = null;
+    private static Card second = null;
     
     private static GreenfootSound[] sounds = {
         new GreenfootSound("click.wav"),
@@ -41,9 +41,9 @@ public class Card extends Actor
      */
     public Card(String name){
         setImage(cover);
-        animal=new GreenfootImage(name+".png");
-        this.name=name;
-        faceUp=true;
+        animal = new GreenfootImage(name+".png");
+        this.name = name;
+        faceUp = true;
         
         this.soundNum = sounds.length;
         this.soundIndex = 0;
@@ -51,16 +51,16 @@ public class Card extends Actor
     public void act()
     {
         // Add your action code here.
-        if(Greenfoot.mouseClicked(this)&&upNumber<2){
+        if(Greenfoot.mouseClicked(this) && upNumber < 2){
             setImage(animal);
             upNumber++;
-            if(upNumber==1){
+            if(upNumber == 1){
                 first=this;
             }
-            if(upNumber==2&&this!=first){
+            if(upNumber == 2 && this != first){
                 second=this;
             }
-            else if(upNumber==2&&this==first){
+            else if(upNumber==2 && this == first){
                 upNumber=1;
             }
         }
