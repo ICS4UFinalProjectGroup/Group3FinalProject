@@ -30,6 +30,9 @@ public class End_World extends World
     private int count;
     private GreenfootImage intro;
     private GreenfootImage jobDesc;
+    
+    private Button replayButton;
+    
     /**
      * Constructor for objects of class End_World. Get the user info and store the stats in the 
      * instance variables
@@ -48,7 +51,7 @@ public class End_World extends World
         Arrays.sort(stats_values);
         
         endText=new Flashing_Text(new GreenfootImage("endInstruction.png"));
-        addObject(endText, 512, 630);
+        
         if (UserInfo.isStorageAvailable()) { // check if connected
             user = UserInfo.getMyInfo();
         }
@@ -56,6 +59,10 @@ public class End_World extends World
             highScore = user.getScore();
             bestJob = user.getString(1);
         } 
+        
+        this.replayButton = new Button("buttonReplay.png");
+        
+        Constants.backgroundSound.playLoop();
     }
     
     public void act(){
@@ -64,7 +71,7 @@ public class End_World extends World
             find_job();
             display=true;
         }
-        if((Greenfoot.mouseClicked(this)||Greenfoot.mouseClicked(endText))&&showBoard==false){
+        if((Greenfoot.mouseClicked(this)||Greenfoot.mouseClicked(endText))&&showBoard==false&&count>300){
             endGame();
         }
         count++;
@@ -77,6 +84,14 @@ public class End_World extends World
             } else {
                 getBackground().drawImage(jobDesc, 720, 420);
             }
+            addObject(endText, 512, 630);
+            //setBackground(new GreenfootImage(job+".png"));
+            //setBackground(new GreenfootImage(job+"Desc.png"));
+        }
+        
+        if (Greenfoot.mouseClicked(this.replayButton)) {
+            Title_World tw = new Title_World();
+            Greenfoot.setWorld(tw);
         }
     }
     
@@ -151,5 +166,23 @@ public class End_World extends World
         showBoard=true;
         user.store();
         
+        addObject(this.replayButton, 800, 600);
+    }
+    
+    /**
+     * This method is called by the Greenfoot system when the execution has started.
+     * Play background sound in loop once the execution has started.
+     */
+    public void started() {
+        Constants.backgroundSound.playLoop();
+    }
+    
+    /**
+     * This method is called by the Greenfoot system when the execution has stopped.
+     * Pause background sound once the execution has stopped so that when it
+     * started again, the sound will play coherently.
+     */
+    public void stopped() {
+        Constants.backgroundSound.pause();
     }
 }
