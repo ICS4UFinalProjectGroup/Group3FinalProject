@@ -29,6 +29,7 @@ public class End_World extends World
     private Color transparent;
     private int count;
     private GreenfootImage intro;
+    private GreenfootImage jobDesc;
     /**
      * Constructor for objects of class End_World. Get the user info and store the stats in the 
      * instance variables
@@ -68,8 +69,14 @@ public class End_World extends World
         }
         count++;
         if(count == 300) {
-            setBackground(new GreenfootImage(job+".png"));
-            //setBackground(new GreenfootImage(job+"Desc.png"));
+            //setBackground(new GreenfootImage(job+".png"));
+            setBackground(new GreenfootImage(job+"Desc.png"));
+            jobDesc = new GreenfootImage(job, 45, Color.GRAY, null);
+            if(jobDesc.equals("programmer")) {
+                getBackground().drawImage(jobDesc, 670, 40);
+            } else {
+                getBackground().drawImage(jobDesc, 720, 420);
+            }
         }
     }
     
