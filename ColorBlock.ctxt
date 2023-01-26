@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=ColorBlock
+comment0.text=\n\ Write\ a\ description\ of\ class\ Pixel\ here.\n\ \n\ @author\ Gloria\ Chan\n\ @version\ \!\!\ DATE\ \!\!\n
+comment1.params=size\ num\ colour\ currColour
+comment1.target=ColorBlock(int,\ int,\ greenfoot.Color,\ greenfoot.Color)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ changeColours()
+comment4.params=
+comment4.target=boolean\ checkColour()
+numComments=5
