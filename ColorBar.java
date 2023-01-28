@@ -1,29 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * This class constitutes the color boxes in the colour selection box of PixelArtWorld.
+ * Write a description of class ColorBar here.
  * 
  * @author Gloria Chan
- * @version January 19, 2023
+ * @version !! DATE !!
  */
 public class ColorBar extends PixelArtTools
 {
-    /**
-     * Constructor for ColorBar class
-     * @param size specifications for the color box's size
-     * @param colour specifications for the box's colour
-     * @param the number that corresponds to the image's colour
-     */
     public ColorBar(int size, Color colour, int num)
     {
         GreenfootImage colorBar = new GreenfootImage(size, size);
         colorBar.setColor(colour);
         colorBar.fillRect(0, 0, size, size);
-        if (colour.equals(Color.BLACK)) // If the box colour is black, the text should be white
+        if (colour.equals(Color.BLACK))
         {
             colorBar.setColor(Color.WHITE);
         }
-        else 
+        else
         {
             colorBar.setColor(Color.BLACK);
         }

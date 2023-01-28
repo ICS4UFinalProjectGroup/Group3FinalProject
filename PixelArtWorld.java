@@ -94,7 +94,6 @@ public class PixelArtWorld extends World
     /**
      * Starts timer to track user play time and generates a random pixel art for the user
      * to complete. Initalizes the pixel art grid and the colour bars.
-     * @param takes in information from the MainWorld
      * 
      */
     public PixelArtWorld(MainWorld mainWorld)
@@ -173,7 +172,6 @@ public class PixelArtWorld extends World
     /**
      * Method that makes a numbered grid (2D array) with numbers that the player must fill in.
      * Each grid is filled with different values (depending on the art).
-     * @param length and height provide specifications for the dimensions of the grid.
      */
     private void makeGrid(int length, int height)
     {
@@ -196,13 +194,12 @@ public class PixelArtWorld extends World
     
     /**
      * Method that adds boxes to represent the colours of the pixel art (its corresponding number is also displayed).
-     * @param numColours is the number of colours that will be represented in the colour box
      */
     private void makeColourBar(int numColours)
     {
         for (int i = 0; i < numColours; i++)
         {
-            ColorBar bar = new ColorBar(32, colours[i], i + 1);
+            ColorDisplay bar = new ColorDisplay(32, colours[i], i + 1);
             int x;
             int y;
             if (i % 2 == 0)

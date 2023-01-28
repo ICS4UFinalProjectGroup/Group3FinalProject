@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=TitleWorld
+comment0.text=\n\ Displays\ the\ game\ title\ and\ homescreen\ along\ with\ a\ "Play"\ button\ to\ start\ the\ game.\n\ \n\ @author\ Gloria\ Chan\n\ @version\:\ January\ 24,\ 2023\n\ \n\ CREDIT\:\ Background\ image\ from\:\ https\://www.pinterest.ca/pin/18366310973098552/\n
+comment1.params=
+comment1.target=TitleWorld()
+comment1.text=\n\ Sets\ up\ the\ background\ image\ and\ adds\ a\ "Play"\ button.\n\ \n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ started()
+comment3.text=\n\ This\ method\ is\ called\ by\ the\ Greenfoot\ system\ when\ the\ execution\ has\ started.\n\ Play\ background\ sound\ in\ loop\ once\ the\ execution\ has\ started.\n
+comment4.params=
+comment4.target=void\ stopped()
+comment4.text=\n\ This\ method\ is\ called\ by\ the\ Greenfoot\ system\ when\ the\ execution\ has\ stopped.\n\ Pause\ background\ sound\ once\ the\ execution\ has\ stopped\ so\ that\ when\ it\n\ started\ again,\ the\ sound\ will\ play\ coherently.\n
+numComments=5

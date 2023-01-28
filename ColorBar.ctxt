@@ -1,9 +1,8 @@
 #BlueJ class context
 comment0.target=ColorBar
-comment0.text=\n\ This\ class\ constitutes\ the\ color\ boxes\ in\ the\ colour\ selection\ box\ of\ PixelArtWorld.\n\ \n\ @author\ Gloria\ Chan\n\ @version\ January\ 19,\ 2023\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ ColorBar\ here.\n\ \n\ @author\ Gloria\ Chan\n\ @version\ \!\!\ DATE\ \!\!\n
 comment1.params=size\ colour\ num
 comment1.target=ColorBar(int,\ greenfoot.Color,\ int)
-comment1.text=\n\ Constructor\ for\ ColorBar\ class\n\ @param\ size\ specifications\ for\ the\ color\ box's\ size\n\ @param\ colour\ specifications\ for\ the\ box's\ colour\n\ @param\ the\ number\ that\ corresponds\ to\ the\ image's\ colour\n
 comment2.params=
 comment2.target=void\ act()
 numComments=3
